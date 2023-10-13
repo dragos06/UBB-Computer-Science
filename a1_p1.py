@@ -88,3 +88,4 @@ if prime_number:
 else:
     print(f"There is no prime number smaller than {user_number}")
 # PROBLEM 5 END
+
