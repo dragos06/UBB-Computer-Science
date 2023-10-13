@@ -112,3 +112,4 @@ if perfect_number:
 else:
     print(f"There is no perfect number smaller than {user_number}")
 # PROBLEM 15 END
+
