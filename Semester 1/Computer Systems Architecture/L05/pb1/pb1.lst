@@ -1,0 +1,48 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14 00000000 313233343536                S1 db '1', '2', '3', '4', '5', '6'
+    15                                      lenS1 equ $-S1
+    16 00000006 3132333435                  S2 db '1', '2', '3', '4', '5'
+    17                                      lenS2 equ $-S2
+    18 0000000B 00<rept>                    D times (lenS1+1)/2+lenS2/2 db 0
+    19                                  ; our code starts here
+    20                                  segment code use32 class=code
+    21                                      start:
+    22                                          ; ...
+    23 00000000 B902000000                      mov ecx, lenS2/2
+    24 00000005 BE[06000000]                    mov esi, S2
+    25 0000000A 46                              inc esi
+    26 0000000B BF[0B000000]                    mov edi, D
+    27 00000010 E30A                            jecxz ending1
+    28                                          firstLoop:
+    29 00000012 8A06                                mov al, [esi]
+    30 00000014 8807                                mov [edi], al
+    31 00000016 83C602                              add esi, 2
+    32 00000019 47                                  inc edi
+    33 0000001A E2F6                                loop firstLoop
+    34                                          ending1:
+    35 0000001C B903000000                      mov ecx, (lenS1+1)/2
+    36 00000021 BE[00000000]                    mov esi, S1
+    37 00000026 E30A                            jecxz ending2
+    38                                          secondLoop:
+    39 00000028 8A06                                mov al, [esi]
+    40 0000002A 8807                                mov [edi], al
+    41 0000002C 83C602                              add esi, 2
+    42 0000002F 47                                  inc edi
+    43 00000030 E2F6                                loop secondLoop
+    44                                          ending2:
+    45                                          
+    46                                          ; exit(0)
+    47 00000032 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    48 00000034 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
