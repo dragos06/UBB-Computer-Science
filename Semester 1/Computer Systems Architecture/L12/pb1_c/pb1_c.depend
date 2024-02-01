@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1703449811 source:d:\facultate\arhitectura sistemelor de calcul\lab12\pb1_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
