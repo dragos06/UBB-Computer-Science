@@ -1,0 +1,59 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                  import printf msvcrt.dll
+    10                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    11                                  extern interlacing
+    12                                  ; our data is declared here (the variables needed by our program)
+    13                                  segment data use32 class=data
+    14                                      ; ...
+    15 00000000 61626364656600              s1 db "abcdef", 0
+    16                                      lens equ $-s1-1
+    17 00000007 31323334353600              s2 db "123456", 0
+    18 0000000E 00<rept>                    s3 times lens+1 db 0
+    19 00000015 00<rept>                    s4 times lens+1 db 0
+    20 0000001C 466972737420737472-         print_format_s1 db "First string letters on even positions, second string letters on odd positions: %s", 13, 10, 0
+    20 00000025 696E67206C65747465-
+    20 0000002E 7273206F6E20657665-
+    20 00000037 6E20706F736974696F-
+    20 00000040 6E732C207365636F6E-
+    20 00000049 6420737472696E6720-
+    20 00000052 6C657474657273206F-
+    20 0000005B 6E206F646420706F73-
+    20 00000064 6974696F6E733A2025-
+    20 0000006D 730D0A00           
+    21 00000071 466972737420737472-         print_format_s2 db "First string letters on odd positions, second string letters on even positions: %s", 0
+    21 0000007A 696E67206C65747465-
+    21 00000083 7273206F6E206F6464-
+    21 0000008C 20706F736974696F6E-
+    21 00000095 732C207365636F6E64-
+    21 0000009E 20737472696E67206C-
+    21 000000A7 657474657273206F6E-
+    21 000000B0 206576656E20706F73-
+    21 000000B9 6974696F6E733A2025-
+    21 000000C2 7300               
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25                                          ; ...
+    26 00000000 6A06                            push dword lens
+    27 00000002 68[15000000]                    push dword s4
+    28 00000007 68[0E000000]                    push dword s3
+    29 0000000C 68[07000000]                    push dword s2
+    30 00000011 68[00000000]                    push dword s1
+    31 00000016 E8(00000000)                    call interlacing
+    32                                          
+    33 0000001B 68[0E000000]                    push dword s3
+    34                                          push dword print_format
+    34          ******************       error: symbol `print_format' undefined
+    35 00000020 FF15[00000000]                  call [printf]
+    36 00000026 83C408                          add esp, 4*2
+    37                                          
+    38                                          ; exit(0)
+    39 00000029 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    40 0000002B FF15[00000000]                  call    [exit]       ; call exit to terminate the program
