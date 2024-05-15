@@ -5,20 +5,18 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include "RepositoryExceptions.h"
 
 using namespace std;
 
-TutorialRepository::~TutorialRepository()
-{
-}
 
 void TutorialRepository::addTutorialRepository(const Tutorial& tutorial)
 {
 	auto it = find(this->tutorials.begin(), this->tutorials.end(), tutorial);
 	if (it != this->tutorials.end())
-		throw std::invalid_argument("Tutorial already exists");
+		//throw std::invalid_argument("Tutorial already exists");
+		throw DuplicateTutorialException();
 	this->tutorials.push_back(tutorial);
-	this->saveToFile();
 }
 
 void TutorialRepository::deleteTutorialRepository(const Tutorial& tutorial)
@@ -27,8 +25,8 @@ void TutorialRepository::deleteTutorialRepository(const Tutorial& tutorial)
 	if (it != this->tutorials.end())
 		this->tutorials.erase(it);
 	else
-		throw std::invalid_argument("Tutorial does not exist");
-	this->saveToFile();
+		//throw std::invalid_argument("Tutorial does not exist");
+		throw InexistentTutorialException();
 }
 
 vector<Tutorial> TutorialRepository::getTutorialsTutorialRepository()
@@ -41,7 +39,8 @@ Tutorial& TutorialRepository::getTutorialRepository(const std::string& title, co
 	for (auto it = this->tutorials.begin(); it != this->tutorials.end(); it++)
 		if ((*it).getTitle() == title && (*it).getPresenter() == presenter)
 			return *it;
-	throw std::invalid_argument("Tutorial does not exist");
+	//throw std::invalid_argument("Tutorial does not exist");
+	throw InexistentTutorialException();
 }
 
 int TutorialRepository::getSizeTutorialRepository()
@@ -49,9 +48,45 @@ int TutorialRepository::getSizeTutorialRepository()
 	return this->tutorials.size();
 }
 
-void TutorialRepository::saveToFile()
+void TutorialRepository::writeToFile()
 {
-	ofstream file("tutorials.txt");
+}
+
+void TutorialRepository::loadFromFile()
+{
+}
+
+
+void FileTutorialRepository::addTutorialRepository(const Tutorial& tutorial)
+{
+	TutorialRepository::addTutorialRepository(tutorial);
+	this->writeToFile();
+}
+
+void FileTutorialRepository::deleteTutorialRepository(const Tutorial& tutorial)
+{
+	TutorialRepository::deleteTutorialRepository(tutorial);
+	this->writeToFile();
+}
+
+std::vector<Tutorial> FileTutorialRepository::getTutorialsTutorialRepository()
+{
+	return TutorialRepository::getTutorialsTutorialRepository();
+}
+
+Tutorial& FileTutorialRepository::getTutorialRepository(const std::string& title, const std::string& presenter)
+{
+	return TutorialRepository::getTutorialRepository(title, presenter);
+}
+
+int FileTutorialRepository::getSizeTutorialRepository()
+{
+	return TutorialRepository::getSizeTutorialRepository();
+}
+
+void FileTutorialRepository::writeToFile()
+{
+	ofstream file(this->filename);
 	if (!file.is_open())
 		throw std::invalid_argument("The file could not be opened!");
 	for (auto tutorial : this->tutorials)
@@ -59,9 +94,9 @@ void TutorialRepository::saveToFile()
 	file.close();
 }
 
-void TutorialRepository::loadFromFile()
+void FileTutorialRepository::loadFromFile()
 {
-	ifstream file("tutorials.txt");
+	ifstream file(this->filename);
 	if (!file.is_open())
 		throw std::invalid_argument("The file could not be opened!");
 	this->tutorials.clear();
@@ -79,10 +114,3 @@ void TutorialRepository::loadFromFile()
 	}
 	file.close();
 }
-
-
-
-
-
-
-

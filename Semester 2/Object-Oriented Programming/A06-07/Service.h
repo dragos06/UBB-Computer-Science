@@ -1,11 +1,13 @@
 #pragma once
 #include "TutorialRepository.h"
 #include "WatchlistRepository.h"
+#include "TutorialValidator.h"
 
 class Service {
 private:
-	TutorialRepository tutorial_repository;
-	WatchlistRepository watchlist_repository;
+	TutorialRepositoryBase* tutorial_repository;
+	WatchlistBase* watchlist_repository;
+	TutorialValidator validator;
 public:
 	//<summary>Default constructor</summary>
 	Service();
@@ -13,8 +15,10 @@ public:
 	//<summary>Constructor with parameters</summary>
 	//<param name="tutorial_repository">The repository of tutorials</param>
 	//<param name="watchlist_repository">The repository of the watchlist</param>
-	Service(TutorialRepository tutorial_repository, WatchlistRepository watchlist_repository);
+	Service(TutorialRepositoryBase* tutorial_repository, WatchlistBase* watchlist_repository);
 	
+
+
 	//<summary>Adds a tutorial to the repository</summary>
 	//<param name="title">The title of the tutorial</param>
 	//<param name="presenter">The presenter of the tutorial</param>
@@ -75,5 +79,7 @@ public:
 	std::vector<Tutorial> tutorialsGivenPresenter(const std::string& presenter);
 
 
+	void openWatchlist();
 	void loadFromFileService();
+
 };

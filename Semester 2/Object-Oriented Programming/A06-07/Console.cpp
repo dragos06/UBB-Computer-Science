@@ -1,5 +1,7 @@
 #include "Console.h"
 #include <iostream>
+#include "RepositoryExceptions.h"
+#include "TutorialValidator.h"
 using namespace std;
 
 Console::Console(Service service)
@@ -86,6 +88,9 @@ void Console::iterateTutorials()
 				if (to_return)
 					break;
 			}
+			catch (RepositoryException& e) {
+				cout << e.what() << endl;
+			}
 			catch (std::invalid_argument& e) {
 				std::cout << e.what() << "\n";
 			}
@@ -133,11 +138,15 @@ void Console::getWatchListConsole()
 		cout<<(*it);
 }
 
-
+void Console::openWatchlistConsole()
+{
+	this->service.openWatchlist();
+}
 
 void Console::startConsole()
 {
 	this->generateStartup10Tutorials();
+	system("cls");
 	while (true) {
 		try {
 			this->printUser();
@@ -190,6 +199,13 @@ void Console::startConsole()
 						if (to_return)
 							break;
 					}
+					catch (TutorialException& e) {
+						for (auto s : e.getErrors())
+							cout << s;
+					}
+					catch (RepositoryException& e) {
+						cout << e.what() << endl;
+					}
 					catch (std::invalid_argument& e) {
 						std::cout << e.what() <<"\n";
 					
@@ -225,11 +241,18 @@ void Console::startConsole()
 							break;
 						}
 						case 4: {
+							this->openWatchlistConsole();
+							break;
+						}
+						case 5: {
 							to_return = true;
 						}
 						}
 						if (to_return)
 							break;
+					}
+					catch (RepositoryException& e) {
+						cout << e.what() << endl;
 					}
 					catch (std::invalid_argument& e) {
 						std::cout << e.what() << "\n";
@@ -244,11 +267,12 @@ void Console::startConsole()
 			}
 			}
 		}
-		catch (std::invalid_argument)
+		catch (exception)
 		{
 			std::cout << "\nInvalid input!\n";
 		}
 	}
+	
 }
 
 void Console::printUser()
@@ -273,7 +297,8 @@ void Console::printMenuUser()
 	std::cout << "\n[1] See the tutorials having a given presenter";
 	std::cout << "\n[2] Delete a tutorial from the watch list";
 	std::cout << "\n[3] See the watch list";
-	std::cout << "\n[4] Go back\n";
+	std::cout << "\n[4] Open watch list";
+	std::cout << "\n[5] Go back\n";
 }
 
 void Console::addTutorialConsole()
