@@ -81,7 +81,7 @@ void WatchlistCSV::writeToFile()
 
 void WatchlistCSV::openWatchlist()
 {
-	system(string("notepad \"watchlist.csv\"").c_str());
+	ShellExecuteA(NULL, NULL, "C:\\Windows\\notepad.exe", "watchlist.csv", NULL, SW_SHOWMAXIMIZED);
 	return;
 }
 

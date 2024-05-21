@@ -2,6 +2,7 @@
 //#include "DynamicVector.h"
 #include <vector>
 #include "Tutorial.h"
+#include <map>
 
 class TutorialRepositoryBase {
 public:
@@ -15,6 +16,7 @@ public:
 	virtual int getSizeTutorialRepository() = 0;
 	virtual void writeToFile() {};
 	virtual void loadFromFile() {};
+
 };
 
 class TutorialRepository : public TutorialRepositoryBase
@@ -43,6 +45,7 @@ public:
 	//<summary>Getter for the size of the repository</summary>
 	//<returns>The size of the repository</returns>
 	int getSizeTutorialRepository() override;
+
 };
 
 class FileTutorialRepository : public TutorialRepository {

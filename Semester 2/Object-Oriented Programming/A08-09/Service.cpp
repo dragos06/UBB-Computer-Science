@@ -46,8 +46,10 @@ void Service::deleteWatchlistService(const std::string& title, const std::string
 {
 	Tutorial& tutorial_wl = this->watchlist_repository->getTutorialWatchlistRepository(title, presenter);
 	Tutorial& tutorial_rp = this->tutorial_repository->getTutorialRepository(title, presenter);
-	if (like == 1)
+	if (like == 1) {
 		tutorial_rp.setLikes(tutorial_rp.getLikes() + 1);
+		this->tutorial_repository->writeToFile();
+	}
 	this->watchlist_repository->deleteWatchlistRepository(tutorial_wl);
 }
 
@@ -86,6 +88,17 @@ vector<Tutorial> Service::tutorialsGivenPresenter(const std::string& presenter)
 	vector<Tutorial> copy_tutorials;
 	copy_if(tutorials.begin(), tutorials.end(), back_inserter(copy_tutorials), [presenter](const Tutorial& tutorial) { return (tutorial.getPresenter() == presenter) || presenter.empty(); });
 	return copy_tutorials;
+}
+
+int Service::getNumberTutorialsDuration(int start_duration, int end_duration)
+{
+	vector<Tutorial> tutorials = this->tutorial_repository->getTutorialsTutorialRepository();
+	int count = 0;
+	for (auto t : tutorials) {
+		if (t.getDuration() >= start_duration && t.getDuration() < end_duration)
+			count++;
+	}
+	return count;
 }
 
 

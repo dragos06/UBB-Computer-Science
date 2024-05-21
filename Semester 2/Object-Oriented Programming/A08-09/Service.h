@@ -2,6 +2,7 @@
 #include "TutorialRepository.h"
 #include "WatchlistRepository.h"
 #include "TutorialValidator.h"
+#include <map>
 
 class Service {
 private:
@@ -78,6 +79,7 @@ public:
 	//<returns>The tutorials given by the presenter</returns>
 	std::vector<Tutorial> tutorialsGivenPresenter(const std::string& presenter);
 
+	int getNumberTutorialsDuration(int start_duration, int end_duration);
 
 	void openWatchlist();
 	void loadFromFileService();
