@@ -1,0 +1,6 @@
+Andrei,andrei@email.com,Hermes,computer science;footbal;
+Alex,alex@email.com,none,chess;students;
+Ion,ion@email.com,OSE,students;computers;
+Vasile,vasile@email.com,OSUBB,football;volley;
+Ionica,ionica@email.com,none,fotbal;treburi;
+Ana,ana@email.com,Hermes,cs;students;society;
