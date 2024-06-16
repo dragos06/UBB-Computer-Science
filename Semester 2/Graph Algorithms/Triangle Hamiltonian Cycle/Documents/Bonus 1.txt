@@ -1,0 +1,60 @@
+    def choose(self, last, visited):
+        """
+        Function that chooses which point will be visited next
+        :param last: The last visited vertex
+        :param visited: List of visited vertices
+        :return: The next vertex to be visited and the minimum cost to that vertex
+        """
+        # Initialize the minimum cost and the next vertex
+        min_cost = float('inf')
+        j_min = -1
+        # For each vertex
+        for j in self.parse_vertices():
+            # If the vertex is not visited and there is an edge between the last vertex and the current vertex
+            if not visited[j] and self.is_edge(last, j):
+                # If the cost is smaller, update the minimum cost and the next vertex
+                cost = self.get_edge_cost(last, j)
+                if cost < min_cost:
+                    min_cost = cost
+                    j_min = j
+        return j_min, min_cost
+
+    def find_shortest_path(self):
+        """
+        Finds the shortest path using a heuristic approach
+        :return: The shortest path and its cost
+        """
+
+        save_cost = float('inf')
+        save_path = []
+
+        for start in self.parse_vertices():
+            # Initialize the variables
+            visited = {v: False for v in self.parse_vertices()}
+            path = [start]
+            visited[start] = True
+            count = 1
+            cost = 0
+
+            # Choose the next vertex to visit
+            for _ in range(self.nr_vertices() - 1):
+                last = path[-1]
+                next_vertex, min_cost = self.choose(last, visited)
+                if next_vertex == -1:
+                    break
+                path.append(next_vertex)
+                visited[next_vertex] = True
+                cost += min_cost
+
+            # Add the cost to return to the start point
+            if self.is_edge(path[-1], start):
+                cost += self.get_edge_cost(path[-1], start)
+                path.append(start)
+
+            # If the path is a Hamiltonian cycle
+            if cost < save_cost:
+                # Update the minimum cost and the path
+                save_cost = cost
+                save_path = path
+
+        return save_path, save_cost

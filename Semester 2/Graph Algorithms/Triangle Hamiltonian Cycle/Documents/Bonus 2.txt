@@ -1,0 +1,24 @@
+    def cond(self, sol):
+        # Check if the current solution forms a valid cycle
+        return len(sol) == self.vertices and sol[0] in self.parse_vertices_out(sol[-1])
+
+    def back(self, sol, best_sol):
+        # Perform backtracking to find the Hamiltonian cycle
+        if self.cond(sol):
+            return sol[:], min(best_sol, sol, key=lambda s: sum(self.get_edge_cost(s[i], s[i + 1]) for i in range(len(s) - 1) + [self.get_edge_cost(s[-1], s[0])]))
+
+        # Add the neighbors of the last vertex in the solution
+        for neighbor in self.parse_vertices_out(sol[-1]):
+            if neighbor not in sol:
+                sol.append(neighbor)
+                best_sol = self.back(sol, best_sol)
+                sol.pop()
+        return best_sol
+
+    def find_hamiltonian_cycle(self):
+        # Find the Hamiltonian cycle using backtracking
+        best_sol = None
+        for vertex in self.parse_vertices():
+            sol = [vertex]
+            best_sol = self.back(sol, best_sol)
+        return best_sol

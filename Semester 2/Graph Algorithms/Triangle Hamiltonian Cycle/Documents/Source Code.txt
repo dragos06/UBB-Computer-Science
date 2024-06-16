@@ -1,0 +1,38 @@
+    def find_hamiltonian_cycle_double_tree(self):
+        """
+        Finds a Hamiltonian cycle with a cost of at most twice the minimum cost using the Double Tree algorithm
+        :return: The Hamiltonian cycle and its cost
+        """
+        # Find the minimum spanning tree
+        mst_edges = self.kruskal_alg()
+        # If the graph is not connected
+        if mst_edges is None:
+            return None, None
+        # Create a graph with the minimum spanning tree
+        mst_graph = Graph(len(self.parse_vertices()))
+        for u, v, cost in mst_edges:
+            mst_graph.add_edge(u, v, cost)
+
+        # Find the Eulerian circuit/ Preorder traversal
+        start_vertex = next(iter(self.parse_vertices()))
+        visited = set()
+        eulerian_circuit = []
+        mst_graph.dfs(start_vertex, visited, eulerian_circuit)
+        eulerian_circuit.append(start_vertex)
+
+        # Shortcutting repeated vertices
+        hamiltonian_cycle = []
+        visited = set()
+        for vertex in eulerian_circuit:
+            if vertex not in visited:
+                visited.add(vertex)
+                hamiltonian_cycle.append(vertex)
+        hamiltonian_cycle.append(hamiltonian_cycle[0])  # to form a cycle
+
+        # Calculate the cost of the Hamiltonian cycle
+        hamiltonian_cost = 0
+        for i in range(len(hamiltonian_cycle) - 1):
+            hamiltonian_cost += self.get_edge_cost(hamiltonian_cycle[i], hamiltonian_cycle[i + 1])
+
+        # Return the Hamiltonian cycle and its cost
+        return hamiltonian_cycle, hamiltonian_cost
