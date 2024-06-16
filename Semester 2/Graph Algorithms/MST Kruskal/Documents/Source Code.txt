@@ -1,0 +1,41 @@
+    def kruskal_alg(self):
+        """
+        Kruskal algorithm
+        :return: a list of edges
+        """
+        # Initialize the list of edges
+        edges = []
+        # Initialize the list of sets
+        sets = []
+        # Initialize the list of edges
+        for vertex in self.parse_vertices():
+            sets.append({vertex})
+            for vertex_y in self.parse_vertices_out(vertex):
+                if vertex < vertex_y:
+                    edges.append((vertex, vertex_y, self.get_edge_cost(vertex, vertex_y)))
+        # Sort the edges by cost
+        edges = sorted(edges, key=lambda x: (x[2], x[0], x[1]))
+        # Initialize the list of spanning tree
+        spanning_tree = []
+        # For each edge
+        for edge in edges:
+            vertex_x, vertex_y, cost = edge
+            set_x = -1
+            set_y = -1
+            # Find the set of the first vertex
+            for i in range(len(sets)):
+                if vertex_x in sets[i]:
+                    set_x = i
+                    break
+            # Find the set of the second vertex
+            for i in range(len(sets)):
+                if vertex_y in sets[i]:
+                    set_y = i
+                    break
+            # If the sets are different, add the edge to the spanning tree
+            if set_x != set_y:
+                spanning_tree.append((vertex_x, vertex_y, cost))
+                # Merge the sets
+                sets[set_x] = sets[set_x].union(sets[set_y])
+                sets.pop(set_y)
+        return spanning_tree
