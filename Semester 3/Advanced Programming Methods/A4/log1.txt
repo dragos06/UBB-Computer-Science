@@ -1,0 +1,14 @@
+MyDictionary contains v -> 2
+
+
+MyStack contains 
+
+MyList contains 2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+

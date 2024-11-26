@@ -1,0 +1,805 @@
+MyDictionary contains 
+
+MyStack contains int v;v = 4;While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v = 4;While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+int v
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v = 4;While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+int v
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains v = 4;While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains v = 4;While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+v = 4
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+v = 4
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains While(v GREATER 0){print(v);v = v SUBTRACT 1};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 4
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 4
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 3
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 4
+3
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+print(v);v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+print(v)
+
+
+MyList contains 4
+3
+2
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+2
+1
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 1
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+v = v SUBTRACT 1
+
+
+MyList contains 4
+3
+2
+1
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+3
+2
+1
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains print(v)
+While(v GREATER 0){print(v);v = v SUBTRACT 1}
+
+
+MyList contains 4
+3
+2
+1
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains print(v)
+
+
+MyList contains 4
+3
+2
+1
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains print(v)
+
+
+MyList contains 4
+3
+2
+1
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains 
+
+MyList contains 4
+3
+2
+1
+0
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains 
+
+MyList contains 4
+3
+2
+1
+0
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+

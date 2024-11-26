@@ -1,0 +1,369 @@
+MyDictionary contains 
+
+MyStack contains Ref(int) v;v=new(20);Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v=new(20);Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+Ref(int) v
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v=new(20);Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+Ref(int) v
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(20);Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(20);Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+v=new(20)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+v=new(20)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains Ref(Ref(int)) a;a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains a=new(v);v=new(30);print(rH(rH(a)))
+Ref(Ref(int)) a
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains a=new(v);v=new(30);print(rH(rH(a)))
+Ref(Ref(int)) a
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains a=new(v);v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains v=new(30);print(rH(rH(a)))
+a=new(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains v=new(30);print(rH(rH(a)))
+a=new(v)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains v=new(30);print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains print(rH(rH(a)))
+v=new(30)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains print(rH(rH(a)))
+v=new(30)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+3 -> 30
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains print(rH(rH(a)))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+3 -> 30
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains 
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+3 -> 30
+
+-----------------------------
+
+MyDictionary contains a -> Ref(int)
+v -> int
+
+
+MyStack contains 
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+2 -> int
+3 -> 30
+
+-----------------------------
+

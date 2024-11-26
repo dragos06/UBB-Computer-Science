@@ -1,0 +1,358 @@
+MyDictionary contains 
+
+MyStack contains Ref(int) v;v=new(20);print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v=new(20);print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+Ref(int) v
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v=new(20);print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+Ref(int) v
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(20);print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(20);print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+v=new(20)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+v=new(20)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v));wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains wH(v,30);v=new(50);print(rH(v) ADD 5)
+print(rH(v))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains wH(v,30);v=new(50);print(rH(v) ADD 5)
+print(rH(v))
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains wH(v,30);v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(50);print(rH(v) ADD 5)
+wH(v,30)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(50);print(rH(v) ADD 5)
+wH(v,30)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 20
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 30
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains v=new(50);print(rH(v) ADD 5)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 30
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v) ADD 5)
+v=new(50)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 30
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v) ADD 5)
+v=new(50)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 30
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v) ADD 5)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+1 -> 30
+2 -> 50
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains print(rH(v) ADD 5)
+
+
+MyList contains 20
+
+
+FileTable: 
+
+HeapTable: 
+2 -> 50
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains 
+
+MyList contains 20
+55
+
+
+FileTable: 
+
+HeapTable: 
+2 -> 50
+
+-----------------------------
+
+MyDictionary contains v -> int
+
+
+MyStack contains 
+
+MyList contains 20
+55
+
+
+FileTable: 
+
+HeapTable: 
+2 -> 50
+
+-----------------------------
+

@@ -1,0 +1,559 @@
+MyDictionary contains 
+
+MyStack contains String varf;varf = test.in;File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains varf = test.in;File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+String varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains varf = test.in;File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+String varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> 
+
+
+MyStack contains varf = test.in;File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> 
+
+
+MyStack contains varf = test.in;File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> 
+
+
+MyStack contains File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+varf = test.in
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> 
+
+
+MyStack contains File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+varf = test.in
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains File opened: varf;int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+File opened: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+File opened: varf
+
+
+MyList contains 
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains int varc;File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+int varc
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+
+
+MyStack contains File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+int varc
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 0
+
+
+MyStack contains File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 0
+
+
+MyStack contains File: varf -> varc;print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 0
+
+
+MyStack contains print(varc);File: varf -> varc;print(varc);File closed: varf
+File: varf -> varc
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 0
+
+
+MyStack contains print(varc);File: varf -> varc;print(varc);File closed: varf
+File: varf -> varc
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains print(varc);File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains File: varf -> varc;print(varc);File closed: varf
+print(varc)
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains File: varf -> varc;print(varc);File closed: varf
+print(varc)
+
+
+MyList contains 
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains File: varf -> varc;print(varc);File closed: varf
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains print(varc);File closed: varf
+File: varf -> varc
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 15
+
+
+MyStack contains print(varc);File closed: varf
+File: varf -> varc
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains print(varc);File closed: varf
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains print(varc);File closed: varf
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains File closed: varf
+print(varc)
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains File closed: varf
+print(varc)
+
+
+MyList contains 15
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains File closed: varf
+
+
+MyList contains 15
+50
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains File closed: varf
+
+
+MyList contains 15
+50
+
+
+FileTable: 
+test.in
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains 
+
+MyList contains 15
+50
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
+MyDictionary contains varf -> test.in
+varc -> 50
+
+
+MyStack contains 
+
+MyList contains 15
+50
+
+
+FileTable: 
+
+HeapTable: 
+
+-----------------------------
+
