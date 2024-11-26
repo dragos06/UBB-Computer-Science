@@ -1,0 +1,1 @@
+1. In a parking lot there are cars, motorcycles and bicycles. Display all vehicles of red color.
