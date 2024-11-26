@@ -1,0 +1,142 @@
+MyDictionary contains 
+
+MyStack contains bool a;int v;a = true;if(a){v = 2}else{v = 3};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains int v;a = true;if(a){v = 2}else{v = 3};print(v)
+bool a
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> false
+
+
+MyStack contains int v;a = true;if(a){v = 2}else{v = 3};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> false
+
+
+MyStack contains a = true;if(a){v = 2}else{v = 3};print(v)
+int v
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> false
+v -> 0
+
+
+MyStack contains a = true;if(a){v = 2}else{v = 3};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> false
+v -> 0
+
+
+MyStack contains if(a){v = 2}else{v = 3};print(v)
+a = true
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> true
+v -> 0
+
+
+MyStack contains if(a){v = 2}else{v = 3};print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> true
+v -> 0
+
+
+MyStack contains print(v)
+if(a){v = 2}else{v = 3}
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> true
+v -> 0
+
+
+MyStack contains print(v)
+v = 2
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> true
+v -> 2
+
+
+MyStack contains print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> true
+v -> 2
+
+
+MyStack contains 
+
+MyList contains 2
+
+
+FileTable: 
+
+-----------------------------
+

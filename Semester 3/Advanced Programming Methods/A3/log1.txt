@@ -1,0 +1,72 @@
+MyDictionary contains 
+
+MyStack contains int v;v = 2;print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains v = 2;print(v)
+int v
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains v = 2;print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 0
+
+
+MyStack contains print(v)
+v = 2
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains print(v)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains v -> 2
+
+
+MyStack contains 
+
+MyList contains 2
+
+
+FileTable: 
+
+-----------------------------
+

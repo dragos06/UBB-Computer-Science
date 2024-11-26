@@ -1,0 +1,128 @@
+MyDictionary contains 
+
+MyStack contains int a;int b;a = 2 ADD 3 MULTIPLY 5;b = a ADD 1;print(b)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains 
+
+MyStack contains int b;a = 2 ADD 3 MULTIPLY 5;b = a ADD 1;print(b)
+int a
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 0
+
+
+MyStack contains int b;a = 2 ADD 3 MULTIPLY 5;b = a ADD 1;print(b)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 0
+
+
+MyStack contains a = 2 ADD 3 MULTIPLY 5;b = a ADD 1;print(b)
+int b
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 0
+b -> 0
+
+
+MyStack contains a = 2 ADD 3 MULTIPLY 5;b = a ADD 1;print(b)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 0
+b -> 0
+
+
+MyStack contains b = a ADD 1;print(b)
+a = 2 ADD 3 MULTIPLY 5
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 17
+b -> 0
+
+
+MyStack contains b = a ADD 1;print(b)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 17
+b -> 0
+
+
+MyStack contains print(b)
+b = a ADD 1
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 17
+b -> 18
+
+
+MyStack contains print(b)
+
+
+MyList contains 
+
+FileTable: 
+
+-----------------------------
+
+MyDictionary contains a -> 17
+b -> 18
+
+
+MyStack contains 
+
+MyList contains 18
+
+
+FileTable: 
+
+-----------------------------
+
