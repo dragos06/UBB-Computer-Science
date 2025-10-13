@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null;
+}
+
+<html>
+<head>
+	<title>Flights</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$.get("/Main/GetFlights", (data) => {
+				$("#flights").html(data);
+
+				$("#flights").on("click", "button[data-id]", function(){
+					const flightId = $(this).data("id");
+					$.post("/Main/ReserveFlight", {flightId: flightId})
+					.done(function()
+						{
+							alert("Reservation made");
+							window.location.reload();
+						});
+				});
+
+			});
+
+			$("#cancelButton").click(function() {
+				$.get("/Main/CancelAllReservations")
+					.done(function() {
+						alert("Reservations canceled");
+						window.location.reload();
+					});
+			});
+
+			$("#flightsButton").click(function() {
+				window.location.href = "/Main/GetFlightsPage";
+			});
+
+			$("#hotelsButton").click(function() {
+				window.location.href = "/Main/GetHotelsPage";
+			});
+		});
+	</script>
+</head>
+<body>
+	<button id="flightsButton">Flights</button>
+	<button id="hotelsButton">Hotels</button>
+	<button id="cancelButton">Cancel All Reservations</button>
+	<h2>Flights</h2>
+	<div id="flights"></div>
+</body>
+</html>

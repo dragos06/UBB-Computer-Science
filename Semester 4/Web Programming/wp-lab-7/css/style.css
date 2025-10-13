@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2em;
+}
+
+body > form {
+  padding-bottom: 50px;
+}
+
+form {
+  margin-bottom: 1em;
+  max-width: 400px;
+}
+
+input,
+select,
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+}
+
+nav a {
+  margin-right: 1em;
+}
+
+.listItemDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listItemDiv > button {
+  width: 10%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.close {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null;
+}
+<html>
+<head>
+	<title>Subscribe to a Channel</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#subscribeButton").click(function(){
+				const channelInput = document.getElementById("channelInput").value;
+				$.get(`/Main/AddSubscription?channel=${channelInput}`, (data)=>{
+					$("#subscribeResponse").html(data);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2>Subscribe to a Channel</h2>
+	<label>Channel name: <input type="text" id="channelInput" /> </label>
+	<button id="subscribeButton">Subscribe</button>
+	<p id="subscribeResponse"></p>
+</body>
+</html>
+

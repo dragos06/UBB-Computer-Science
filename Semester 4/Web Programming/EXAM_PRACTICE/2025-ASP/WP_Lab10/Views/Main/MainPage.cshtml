@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Channels</title>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$.get("/Main/GetBadWordsCount", (data) => {
+				$("#flags").html("Number of flags: " + data);
+			})
+
+			$("#viewPersonChannels").click(function() {
+				window.location.href = "/Main/ViewPersonChannels";
+			});
+
+			$("#viewFeedbacks").click(function() {
+				window.location.href = "/Main/ViewFeedbacks";
+			});
+
+			$("#insertFeedback").click(function() {
+				window.location.href = "/Main/InsertFeedbackPage"
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Feedbacks</h1>
+	<p id="flags"></p>
+	<button id="viewPersonChannels">View a Person's Channels</button>
+	<button id="viewFeedbacks">View Feedbacks</button>
+	<button id="insertFeedback">Insert Feedback</button>
+</body>
+
+</html>

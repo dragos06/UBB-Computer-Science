@@ -1,0 +1,180 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Document Manager</title>
+
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			margin: 0;
+			padding: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+
+		label {
+			margin-right: 15px;
+		}
+
+		input[type="text"] {
+			padding: 5px;
+			margin-right: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		input[type="button"] {
+			padding: 6px 12px;
+			margin: 5px;
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+			input[type="button"]:hover {
+				background-color: #0056b3;
+			}
+
+		#lastFilter {
+			margin-top: 10px;
+			font-style: italic;
+			color: #555;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin-top: 20px;
+		}
+
+		li {
+			background-color: white;
+			padding: 15px;
+			margin-bottom: 10px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+			li button {
+				margin-left: 10px;
+				padding: 6px 10px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: background-color 0.2s ease;
+			}
+
+		.editBtn {
+			background-color: #ffc107;
+			color: #212529;
+		}
+
+			.editBtn:hover {
+				background-color: #e0a800;
+			}
+
+		.deleteBtn {
+			background-color: #dc3545;
+			color: white;
+		}
+
+			.deleteBtn:hover {
+				background-color: #c82333;
+			}
+
+		.button-group {
+			display: flex;
+			gap: 8px;
+		}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			const savedType = localStorage.getItem("docTypeFilter") || "";
+			const savedFormat = localStorage.getItem("docFormatFilter") || "";
+
+			$("#typeFilter").val(savedType);
+			$("#formatFilter").val(savedFormat);
+
+
+			$.get("/Main/GetDocuments", {type: savedType, format: savedFormat},
+			function(data, status){
+				$("#docList").html(data);
+				$("#lastFilter").text(`Last used filter: Type ="${savedType}", Format="${savedFormat}"`);
+			});
+			
+			$("#filterButton").click(function() {
+				const type = $("#typeFilter").val();
+				const format = $("#formatFilter").val();
+
+				localStorage.setItem("docTypeFilter", type);
+				localStorage.setItem("docFormatFilter", format);
+
+				$.get("/Main/GetDocuments", { type, format },
+				function (data, status) {
+					$("#docList").html(data);
+					$("#lastFilter").text(`Last used filter: Type ="${type}", Format="${format}"`);
+				});
+			});
+
+			$("#addButton").click(function() {
+				window.location.href = "/Main/AddDocument";
+			});
+
+			$("#docList").on("click", ".editBtn", function () {
+				var docId = $(this).data("id");
+				window.location.href = "/Main/EditDocument/" + docId;
+			});
+
+			$("#docList").on("click", ".deleteBtn", function () {
+				var docId = $(this).data("id");
+				if(confirm("Are you sure you want to delete this document?")) {
+					$.ajax({
+						url: "/Main/DeleteDocument/" + docId,
+						type: "POST",
+						success: function (result) {
+							alert("Document deleted.");
+							$("#filterButton").click();
+						},
+						error: function() {
+							alert("Error deleting document.");
+						}
+					})
+				}
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Document Manager</h1>
+	<a asp-controller="Auth" asp-action="Logout" style="float:right">Logout @ViewBag.Username</a>
+	<label>Type: <input type="text" id="typeFilter" /></label>
+	<label>Format: <input type="text" id="formatFilter" /></label>
+	<input id="filterButton" type="button" value="Filter" />
+	<input id="addButton" type="button" value="Add Document" />
+
+	<p id="lastFilter"></p>
+	<div id="docList"></div>
+</body>
+
+</html>

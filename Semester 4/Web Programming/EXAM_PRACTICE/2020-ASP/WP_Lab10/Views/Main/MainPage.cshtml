@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Channels</title>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#viewPersonChannels").click(function() {
+				window.location.href = "/Main/ViewPersonChannels";
+			});
+
+			$("#viewSubscribedChannels").click(function() {
+				window.location.href = "/Main/ViewSubscribedChannels";
+			});
+
+			$("#subscribeChannel").click(function() {
+				window.location.href = "/Main/SubscribeChannel"
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Reservation</h1>
+	<button id="viewPersonChannels">View a Person's Channels</button>
+	<button id="viewSubscribedChannels">View Subscribed Channels</button>
+	<button id="subscribeChannel">Subscribe to a Channel</button>
+</body>
+
+</html>

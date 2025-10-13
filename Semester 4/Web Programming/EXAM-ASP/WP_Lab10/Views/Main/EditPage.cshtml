@@ -1,0 +1,122 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    var docId = ViewData["DocumentId"];
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Update Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 30px;
+            max-width: 480px;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 8px 10px;
+            margin-top: 5px;
+            border: 1.5px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+            input[type="text"]:focus,
+            input[type="number"]:focus {
+                border-color: #4a90e2;
+                outline: none;
+            }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #357ABD;
+            }
+    </style>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var docId = '@docId';
+
+			$.get("/Main/GetDocumentById", {id: docId}, function(data){
+				$("input[name='id']").val(data.id);
+				$("input[name='author']").val(data.author);
+				$("input[name='title']").val(data.title);
+				$("input[name='pages']").val(data.pages);
+				$("input[name='type']").val(data.type);
+				$("input[name='format']").val(data.format);
+			});
+
+			$("#editDocumentForm").submit(function(e) {
+				e.preventDefault();
+				var formData = $(this).serialize();
+
+				$.post("/Main/UpdateDocument", formData, function (response) {
+					alert("Document updated!");
+					window.location.href = "/Main/Index";
+				}).fail(function() {
+					alert("Failed to update document.");
+				});
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Update Document</h1>
+	<form id="editDocumentForm">
+		<input type="hidden" name="id">
+		<label>Author: <input type="text" name="author" required /></label>
+		<label>Title: <input type="text" name="title" required /></label>
+		<label>Pages: <input type="number" name="pages" required /></label>
+		<label>Type: <input type="text" name="type" required /></label>
+		<label>Format: <input type="text" name="format" required /></label>
+		<button type="submit">Save</button>
+	</form>
+</body>
+
+</html>

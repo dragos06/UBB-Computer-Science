@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 5</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="buttonsContainer">
+                <button name="btn1">Button 1</button>
+                <button name="btn2">Button 2</button>
+            </div>
+            <div class="linksContainer">
+                <a href="https://www.example.com" id="link1">Link 1</a>
+                <a href="https://www.example.com" id="link2">Link 2</a>
+                <a href="https://www.example.com" id="link3">Link 3</a>
+                <a href="https://www.example.com" id="link4">Link 4</a>
+                <a href="https://www.example.com" id="link5">Link 5</a>
+                <a href="https://www.example.com" id="link6">Link 6</a>
+                <a href="https://www.example.com" id="link7">Link 7</a>
+                <a href="https://www.example.com" id="link8">Link 8</a>
+                <a href="https://www.example.com" id="link9">Link 9</a>
+                <a href="https://www.example.com" id="link10">Link 10</a>
+            </div>
+        </div>
+
+        <script>
+            let images=[
+                'url("assets/image1.jpg")',
+                'url("assets/image2.jpg")',
+                'url("assets/image3.jpg")',
+                'url("assets/image4.jpeg")',
+                'url("assets/image5.jpeg")'
+            ];
+            
+            let imageIndex = 0;
+
+            document.getElementsByName("btn1")[0].addEventListener("click", function(){
+                document.body.style.backgroundImage = images[imageIndex];
+                imageIndex = (imageIndex + 1) % images.length;
+            });
+
+            function getRandomColor(){
+                let letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function getRandomBorder(){
+                let borderWidth = Math.floor(Math.random() * 10) + 1;
+                let borderStyle = Math.random() < 0.5 ? 'solid' : 'dashed';
+
+                return `${borderWidth}px ${borderStyle} ${getRandomColor()}`;
+            }
+
+            function getRandomBorderRadius(){
+                return Math.floor(Math.random() * 10) + 'px';
+            }
+
+            document.getElementsByName("btn2")[0].addEventListener("click", function(){
+                let links = document.querySelectorAll(".linksContainer a");
+                links.forEach(link => {
+                    link.style.color = getRandomColor();
+                    link.style.border = getRandomBorder();
+                    link.style.borderRadius = getRandomBorderRadius();
+                });
+            })
+        </script>
+    </body>
+</html>

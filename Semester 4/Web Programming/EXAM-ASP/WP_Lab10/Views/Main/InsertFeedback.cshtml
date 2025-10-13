@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null;
+}
+<html>
+<head>
+	<title>Subscribe to a Channel</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			let numberFlags = 0;
+			$.get("/Main/GetBadWordsCount", (data) => {
+				numberFlags = parseInt(data);
+				$("#flags").html("Number of flags: " + data);
+			})
+
+			$("#insertButton").click(function(){
+				const messageInput = document.getElementById("messageInput").value;
+				$.get(`/Main/VerifyFeedbacK?message=${messageInput}`, (data)=>{
+					if(data === "Success"){
+						alert("Feedback inserted");
+						window.location.href="/Main/Index";
+					}
+					else{
+						if(numberFlags > 2){
+							window.confirm(data + ". Are you sure you want to continue?")
+						}
+						else{
+							if (window.confirm(data + ". Are you sure you want to continue?")){
+								$.post("/Main/InsertFeedback", {message: messageInput}, () => {
+									window.location.href="/Main/Index";
+								});
+
+							}
+						}
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2>Insert Feedback</h2>
+	<p id="flags"></p>
+	<label>Message: <input type="text" id="messageInput" /> </label>
+	<button id="insertButton">Insert</button>
+	<p id="subscribeResponse"></p>
+</body>
+</html>
+

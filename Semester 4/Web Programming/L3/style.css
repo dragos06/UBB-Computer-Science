@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #bae0b7;
+  font-family: Calibri;
+}
+
+.flexdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding-block: 5px;
+  max-width: 100%;
+  height: auto;
+}
+
+.flexdiv > * {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.searchbar {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.searchbar form {
+  display: flex;
+  width: 100%;
+}
+
+.searchbar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.searchbar button {
+  padding: 10px;
+  background-color: #f0c14b;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.searchbar select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  margin-right: -1px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #232f3e;
+  padding-block: 10px;
+  max-width: 100%;
+
+}
+
+.navbar > * {
+  color: white;
+  margin-left: 20px;
+}
+.mainScreen {
+  position: relative;
+}
+
+.shoppingDiv {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top:50%;
+}
+
+.SquareShop1,
+.SquareShop2 {
+  background-color: white;
+  padding: 15px;
+  padding-top: 20px;
+  width: 21%;
+}
+
+.SquareShop1 img {
+  height: auto;
+  max-width: 100%;
+}
+
+.SquareShop1 figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+.SquareShop2 img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+}

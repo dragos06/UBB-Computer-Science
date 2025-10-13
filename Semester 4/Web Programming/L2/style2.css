@@ -1,0 +1,46 @@
+.menu, .submenu{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    min-width: 100px;
+    max-width: max-content;
+}
+
+li{
+    min-width: 100px;
+    max-width: max-content;
+}
+
+.menu > li{
+    position: relative;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu > li:hover{
+    background-color: #444;
+}
+
+.submenu{
+    display:none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #444;
+}
+
+li:hover > .submenu{
+    display: block;
+}
+
+.submenu > li{
+    position: relative;
+    padding: 10px;
+    color: white;
+}
+
+.submenu > li:hover{
+    background-color: #555;
+}

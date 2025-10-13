@@ -158,3 +158,109 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# IDE settings and editor temp
+.vscode/
+.idea/
+.vs/
+*.iml
+*.suo
+*.user
+*.userprefs
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python/Notebook caches (some labs include notebooks but not part of Web Programming)
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Node / front-end build output (if any)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# Java / JSP build artifacts & server distributions
+*.class
+*.war
+*.jar
+target/
+bin/
+obj/
+apache-tomcat-*/
+tomcat-*/
+apache-tomcat-*/
+
+# IntelliJ/IDEA / Android Studio / JetBrains
+out/
+
+# Visual Studio build artifacts (WP_Lab10 may be a VS solution)
+*.exe
+*.dll
+*.pdb
+[Bb]in/
+[Oo]bj/
+*.user
+*.sln.cache
+.vs/
+
+# Java webproject extras
+*.iml
+*.ipr
+*.iws
+
+# PHP / Composer
+vendor/
+composer.lock      # optionally ignore if you rely on composer.lock, otherwise keep it
+.env               # runtime environment (secrets) - keep .env.example if present
+uploads/
+wp-content/uploads/
+
+# WordPress / WP labs
+wp-config.php      # often contains secrets; keep wp-config-sample.php instead
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/plugins/*/node_modules/
+
+# Databases, logs, temp
+*.log
+*.tmp
+*.bak
+*.swp
+*.sqlite
+*.db
+*.sql.gz
+*.sql.lck
+*.pid
+
+# Archives / packages / images not source
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.jar
+
+# IntelliJ/IDEA project files and workspace
+*.idea/
+*.iml
+*.classpath
+*.project
+*.settings/
+
+# Misc
+*.class
+*.cache
+.cache/
+*.bak
+*.orig
+*~ 
+
+# Specific folders from tree (safely ignore runtime / IDE / dist directories)
+L9/apache-tomcat-11.0.7/
+EXAM-ASP/.vs/
+WP_Lab10/.vs/
+wp-lab-7/.vscode/

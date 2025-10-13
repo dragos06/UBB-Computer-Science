@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical Sliding Desktops</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: sans-serif;
+    }
+    .desktop {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      font-size: 2em;
+      transition: background 0.3s ease-in-out;
+    }
+    .desktop img {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    #desktop1 { background: rgba(255, 99, 71, 0.8); }
+    #desktop2 { background: rgba(60, 179, 113, 0.8); }
+    #desktop3 { background: rgba(30, 144, 255, 0.8); }
+    #desktop4 { background: rgba(138, 43, 226, 0.8); }
+  </style>
+</head>
+<body>
+
+  <div id="desktop1" class="desktop">
+    <div>Welcome to Windows 7</div>
+    <img src="assets/images/win7.png" alt="Image 1">
+  </div>
+  <div id="desktop2" class="desktop" style="display:none;">
+    <div>This is Windows 8</div>
+    <img src="assets/images/win8.png" alt="Image 2">
+  </div>
+  <div id="desktop3" class="desktop" style="display:none;">
+    <div>Hello from Windows 10</div>
+    <img src="assets/images/win10.png" alt="Image 3">
+  </div>
+  <div id="desktop4" class="desktop" style="display:none;">
+    <div>You made it to Windows 11</div>
+    <img src="assets/images/win11.png" alt="Image 4">
+  </div>
+
+  <script>
+    $(function () {
+      const desktops = ['#desktop1', '#desktop2', '#desktop3', '#desktop4'];
+      let current = 0;
+
+      $('body').on('click', function () {
+        const $currentDesktop = $(desktops[current]);
+        current = (current + 1) % desktops.length;
+        const $nextDesktop = $(desktops[current]);
+
+        // Place next desktop above the view
+        $nextDesktop
+          .css({ top: '-100%', display: 'flex', alignItems: 'center', justifyContent: 'center' })
+          .animate({ top: '0%' }, 600);
+
+        // Slide current down and hide after animation
+        $currentDesktop.animate({ top: '100%' }, 600, function () {
+          $currentDesktop.css({ display: 'none', top: '0%' });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
