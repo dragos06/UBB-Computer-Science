@@ -172,6 +172,14 @@ cython_debug/
 .DS_Store
 Thumbs.db
 
+# Editor and temp files
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+*.bak
+
 # Python/Notebook caches (some labs include notebooks but not part of Web Programming)
 __pycache__/
 *.pyc
@@ -207,6 +215,11 @@ out/
 *.user
 *.sln.cache
 .vs/
+*.suo
+*.wsuo
+*.vspscc
+*.vssscc
+VSWorkspaceState.json
 
 # Java webproject extras
 *.iml

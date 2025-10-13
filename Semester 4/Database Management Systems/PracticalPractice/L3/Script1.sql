@@ -1,0 +1,8 @@
+USE ParkingLots
+
+-- Solution: SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+BEGIN TRANSACTION
+	SELECT * FROM Categories WHERE c_name = 'cat1';
+	WAITFOR DELAY '00:00:10';
+	SELECT * FROM Categories WHERE c_name = 'cat1';
+	COMMIT;
