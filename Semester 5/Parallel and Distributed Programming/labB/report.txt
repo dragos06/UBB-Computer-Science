@@ -1,0 +1,85 @@
+OPENCL POLYNOMIAL MULTIPLICATION LAB - DOCUMENTATION
+=================================================
+
+1. ALGORITHM DESCRIPTIONS
+
+A. Naive Multiplication (O(n^2))
+   The Naive algorithm performs a standard polynomial multiplication (convolution)
+   offloaded to the GPU.
+   
+   - Logic: For two polynomials A (size n) and B (size m), the result polynomial 
+     Result has a size of n + m - 1. Each coefficient Result[k] is calculated by 
+     summing A[i] * B[j] where indices align.
+   - Implementation: The outer loop over 'k' is replaced by the GPU's global 
+     work-item distribution.
+
+B. Karatsuba Multiplication (O(n^1.58))
+   The Karatsuba algorithm uses a Divide-and-Conquer approach to reduce the 
+   number of multiplicative operations.
+   
+   - Splitting: Inputs are split into lower and upper halves.
+   - Recursion: Computes three partial products:
+     1. P1 = A0 * B0
+     2. P2 = A1 * B1
+     3. P3 = (A0 + A1) * (B0 + B1)
+   - Combination: The middle term is derived as (P3 - P1 - P2).
+
+
+2. OPENCL IMPLEMENTATION STRATEGIES
+
+A. Naive OpenCL (Massive Data Parallelism)
+   - Strategy: Output Partitioning (One Thread per Output).
+   - Kernel Design:
+     The OpenCL kernel `naive_poly_mul` eliminates the outer sequential loop. 
+     Instead, a Global ID `k` is assigned to every index of the result vector.
+   - Boundary Handling: 
+     Inside the kernel, `start_i` and `end_i` are dynamically calculated to 
+     ensure memory accesses stay within valid bounds of A and B, handling the 
+     "sliding window" of convolution.
+   - Memory Management:
+     Input buffers (A, B) are created as Read-Only. The Result buffer is 
+     Write-Only. Data is transferred from Host to Device once before execution 
+     and read back upon completion.
+
+B. Hybrid Karatsuba (Recursive Offloading)
+   - Strategy: Host-Controlled Recursion with GPU Acceleration.
+   - Thresholding:
+     The implementation defines a threshold (N <= 2048). If the polynomial size 
+     is below this value, the recursion stops, and the multiplication is dispatched 
+     to the GPU using the `multiplyOpenCLNaive` function.
+   - Logic: 
+     1. The Host (CPU) manages the recursion tree, memory allocation for sub-
+        polynomials, and vector addition (A0+A1, B0+B1).
+     2. The Device (GPU) acts as a co-processor, handling the dense matrix-math 
+        heavy lifting for the base cases (leaf nodes of the recursion tree).
+   - Benefit:
+     This hybrid approach avoids the high overhead of launching kernels for very 
+     small arrays and avoids complex device-side recursion, while still leveraging 
+     GPU bandwidth for the bulk of the work.
+
+
+3. PERFORMANCE MEASUREMENTS
+
+Scenario 1: N = 10,000
+   1. Sequential Naive: 0.9233 s
+   2. Parallel Naive: 0.4379 s
+   3. Sequential Karatsuba: 0.1344 s
+   4. Parallel Karatsuba: 0.0820 s
+   5. GPU Naive: 0.0229 s
+   6. GPU Karatsuba: 0.0209 s
+
+Scenario 2: N = 50,000
+   1. Sequential Naive: 23.2450 s
+   2. Parallel Naive: 10.2118 s
+   3. Sequential Karatsuba: 1.6562 s
+   4. Parallel Karatsuba: 0.9949 s
+   5. GPU Naive: 0.2876 s
+   6. GPU Karatsuba: 0.2146 s
+
+Scenario 3: N = 100,000
+   1. Sequential Naive: 90.8287 s
+   2. Parallel Naive: 48.7517 s
+   3. Sequential Karatsuba: 4.7945 s
+   4. Parallel Karatsuba: 3.3829 s
+   5. GPU Naive: 10.7935 s
+   6. GPU Karatsuba: 0.6638 s

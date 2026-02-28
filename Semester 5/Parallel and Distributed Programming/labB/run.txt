@@ -1,0 +1,1 @@
+g++ MainOpenCL.cpp OpenCLMultiplication.cpp NaiveMultiplication.cpp KaratsubaMultiplication.cpp PolynomialUtils.cpp BigIntUtils.cpp -pthread -lOpenCL

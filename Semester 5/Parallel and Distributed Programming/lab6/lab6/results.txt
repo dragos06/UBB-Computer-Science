@@ -1,0 +1,32 @@
+Both solvers use a Depth-First Search (DFS) backtracking
+approach to explore paths. The search starts from a fixed vertex
+and attempts to visit every node exactly once before
+returning to the start.
+
+- Threaded Solver: Splits a fixed pool of threads among
+  available neighbors at each level.
+  If 8 threads encounter 3 neighbors, the work is divided
+  proportionally (e.g., 3, 3, and 2 threads).
+- ForkJoin Solver: Uses Java's ForkJoinPool to create
+  RecursiveTasks for each neighbor.
+  It relies on work-stealing to balance the search load
+  across available processors.
+
+- Each thread or task works on its own cloned copy of the 'visited' array and current 'path' list. This ensures no shared memory conflicts during the search.
+- Global Terminate: An AtomicBoolean flag 'solutionFound' is shared across all threads. Once one branch finds a cycle, it updates this flag, signaling all other branches to stop immediately.
+
+
+Graph Size: 10 vertices
+Density: 50%
+- Manual Threaded Solver (8 Threads): 13 ms
+- ForkJoinPool Solver: 2 ms
+
+Graph Size: 20 vertices
+Density: 50%
+- Manual Threaded Solver (8 Threads): 15 ms
+- ForkJoinPool Solver: 13 ms
+
+Graph Size: 20 vertices
+Density: 20%
+- Manual Threaded Solver (8 Threads): 145 ms
+- ForkJoinPool Solver: 259 ms

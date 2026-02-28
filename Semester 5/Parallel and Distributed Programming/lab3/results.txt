@@ -1,0 +1,23 @@
+9x9 matrix1
+9x9 matrix2
+4 threads
+
+completeRows: 0.108597s | 0.10401s | 0.103949s
+completeColumns: 0.106961s | 0.109929s | 0.10391s
+completeK: 0.103391s | 0.110587s | 0.0999406s
+
+15x15 matrix1
+15x15 matrix2
+25 threads
+
+completeRows: 0.0614616s | 0.0724686s | 0.0656763s
+completeColumns: 0.060627s | 0.063593s | 0.0728867s
+completeK: 0.0630675s | 0.0641697s | 0.0757465s
+
+15x15 matrix1
+15x15 matrix2
+100 threads
+
+completeRows: 0.195706s | 0.167691s | 0.197868s
+completeColumns: 0.212945s | 0.167051s | 0.18444s
+completeK: 0.0859332s | 0.0776233s | 0.0771067s

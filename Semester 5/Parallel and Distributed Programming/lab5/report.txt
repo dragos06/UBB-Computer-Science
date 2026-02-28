@@ -1,0 +1,77 @@
+1. ALGORITHM DESCRIPTIONS
+
+A. Naive Multiplication (O(n^2))
+   The Naive algorithm performs a standard polynomial multiplication (convolution). 
+   For two polynomials A (size n) and B (size m), the result polynomial C has a size 
+   of n + m - 1.
+   
+   - Logic: Each coefficient C[k] is calculated by summing A[i] * B[j] for all pairs 
+     where i + j = k.
+   - Implementation: Two nested loops iterate through the input vectors.
+
+B. Karatsuba Multiplication (O(n^1.58))
+   The Karatsuba algorithm uses a Divide-and-Conquer approach to reduce the number 
+   of multiplicative operations.
+   
+   - Splitting: The inputs A and B are split into lower halves (A0, B0) and upper 
+     halves (A1, B1) at index k = n/2.
+   - Recursion: It computes three partial products recursively:
+     1. P1 = A0 * B0
+     2. P2 = A1 * B1
+     3. P3 = (A0 + A1) * (B0 + B1)
+   - Combination: The middle term is derived as (P3 - P1 - P2), avoiding a fourth multiplication.
+   - Optimization: A hybrid approach is used. If the polynomial size drops below 32, 
+     the algorithm switches to the Naive method to avoid recursion overhead on small inputs.
+
+2. SYNCHRONIZATION AND PARALLELIZATION STRATEGIES
+
+A. Naive Parallel
+   - Strategy: Data Parallelism (Loop Decomposition).
+   - Implementation: The result vector indices (0 to n+m-1) are divided into chunks 
+     based on the number of hardware threads available.
+   - Synchronization: 
+     No explicit locks (mutexes) are required during the computation phase. 
+     Each thread writes to a distinct, non-overlapping range of indices in the 
+     'result' vector.
+     Synchronization is achieved via `std::thread::join()`, acting as a barrier to 
+     ensure all chunks are completed before returning the result.
+
+B. Karatsuba Parallel
+   - Strategy: Task Parallelism (Fork-Join).
+   - Implementation: Threads are spawned to compute the three recursive sub-problems 
+     (A0B0, A1B1, and Mid) concurrently.
+   - Granularity Control: To prevent creating too many threads, 
+     parallel execution reverts to sequential execution if:
+     1. The polynomial size is <= 32 (Base case threshold).
+     2. The recursion depth exceeds 4 levels.
+   - Synchronization:
+     The `join()` method is used to wait for the child threads to complete.
+     Data safety is ensured by memory isolation; each thread works on independent 
+     local result vectors (A0B0, A1B1, Mid), which are only read by the parent 
+     thread after the join barrier.
+
+3. PERFORMANCE MEASUREMENTS
+
+Input Size: 100 degrees
+
+Results:
+1. Naive Sequential:     0.0005 s
+2. Naive Parallel:       0.0014 s
+3. Karatsuba Sequential: 0.0003 s
+4. Karatsuba Parallel:   0.0014 s
+
+Input Size: 10000 degrees
+
+Results:
+1. Naive Sequential:     0.9495 s
+2. Naive Parallel:       0.5654 s
+3. Karatsuba Sequential: 0.1321 s
+4. Karatsuba Parallel:   0.0910 s
+
+Input Size: 100000 degrees
+
+Results:
+1. Naive Sequential:     92.7254 s
+2. Naive Parallel:       48.0165 s
+3. Karatsuba Sequential: 4.7356 s
+4. Karatsuba Parallel:   3.2745 s
