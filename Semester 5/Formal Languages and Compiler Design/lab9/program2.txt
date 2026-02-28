@@ -1,0 +1,16 @@
+DEF theorem_check(A, B)
+BEGIN
+    L = (A * B) T
+    L = L T
+    L = L T
+    R = (B T) * (A T)
+    IF L == R THEN
+        RETURN 1
+    ELSE
+        RETURN 0
+    END
+END
+
+M1 = MATRIX([[1, 2], [3, 4]])
+M2 = MATRIX([[5, 6], [7, 8]])
+OUTPUT theorem_check(M1, M2)

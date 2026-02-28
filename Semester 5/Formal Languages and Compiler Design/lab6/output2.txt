@@ -1,0 +1,28 @@
+DEF
+ID(theorem_check)
+(
+ID(A)
+,
+ID(B)
+)
+BEGIN
+=
+
+
+DEF theorem_check(A, B)
+BEGIN
+    = (A * B) T
+    R = (B T) * (A T)
+    IF L == R THEN
+        RETURN 1
+    ELSE
+        RETURN 0
+    END
+END
+
+M1 = MATRIX([[1, 2], [3, 4]])
+M2 = MATRIX([[5, 6], [7, 8]])
+OUTPUT theorem_check(M1, M2)
+
+Syntax error at line 3 near '=': syntax error, unexpected ASSIGN, expecting END
+Syntactically correct: NO

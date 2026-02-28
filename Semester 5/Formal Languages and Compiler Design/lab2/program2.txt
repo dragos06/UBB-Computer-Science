@@ -1,0 +1,22 @@
+Program 2: This program takes three inputs, performs scaled addition on pairs of them, and then combines the results using either addition or multiplication based on whether the first two inputs are equal.
+
+DEF scaleAndAdd(X, Y, s)
+BEGIN
+    RETURN (X + Y) * s
+END
+
+DEF combine(M1, M2, M3)
+BEGIN
+    R1 = scaleAndAdd(M1, M2, 2)
+    R2 = scaleAndAdd(M2, M3, 3)
+    IF M1 == M2 THEN
+        RETURN R1 + R2 T
+    ELSE
+        RETURN R1 * R2
+    END
+END
+
+INPUT A
+INPUT B
+INPUT C
+OUTPUT combine(A, B, C), A, B, C

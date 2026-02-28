@@ -1,0 +1,52 @@
+%option noyywrap yylineno
+%{
+#include "vect_matrix_ops.tab.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+FILE *outFile; // file for token output
+extern int yylval;
+%}
+
+%%
+"INPUT"      { fprintf(outFile, "INPUT\n"); return INPUT; }
+"OUTPUT"     { fprintf(outFile, "OUTPUT\n"); return OUTPUT; }
+"IF"         { fprintf(outFile, "IF\n"); return IF; }
+"THEN"       { fprintf(outFile, "THEN\n"); return THEN; }
+"ELSE"       { fprintf(outFile, "ELSE\n"); return ELSE; }
+"END"        { fprintf(outFile, "END\n"); return END; }
+"DEF"        { fprintf(outFile, "DEF\n"); return DEF; }
+"BEGIN"      { fprintf(outFile, "BEGIN\n"); return BEGIN_KW; }
+"RETURN"     { fprintf(outFile, "RETURN\n"); return RETURN; }
+"MATRIX"     { fprintf(outFile, "MATRIX\n"); return MATRIX; }
+"T"          { fprintf(outFile, "T\n"); return T; }
+
+"+"    { fprintf(outFile, "+\n"); return PLUS; }
+"-"    { fprintf(outFile, "-\n"); return MINUS; }
+"*"    { fprintf(outFile, "*\n"); return TIMES; }
+"."    { fprintf(outFile, ".\n"); return DOT; }
+"x"    { fprintf(outFile, "x\n"); return CROSS; }
+"="    { fprintf(outFile, "=\n"); return ASSIGN; }
+"=="   { fprintf(outFile, "==\n"); return EQ; }
+"!="   { fprintf(outFile, "!=\n"); return NEQ; }
+">="   { fprintf(outFile, ">=\n"); return GE; }
+"<="   { fprintf(outFile, "<=\n"); return LE; }
+">"    { fprintf(outFile, ">\n"); return GT; }
+"<"    { fprintf(outFile, "<\n"); return LT; }
+"("    { fprintf(outFile, "(\n"); return LPAREN; }
+")"    { fprintf(outFile, ")\n"); return RPAREN; }
+"["    { fprintf(outFile, "[\n"); return LBRACKET; }
+"]"    { fprintf(outFile, "]\n"); return RBRACKET; }
+","    { fprintf(outFile, ",\n"); return COMMA; }
+
+[a-zA-Z_][a-zA-Z0-9_]* { fprintf(outFile, "ID(%s)\n", yytext); yylval = 0; return ID; }
+[0-9]+                  { fprintf(outFile, "CONST(%s)\n", yytext); yylval = atoi(yytext); return CONST; }
+
+[ \t]+   { }     // ignore spaces/tabs
+\n       { }     // count newlines
+
+.        {
+             fprintf(stderr, "Lexical error at line %d: unexpected character '%s'\n", yylineno, yytext);
+             return 0;
+         }
+%%

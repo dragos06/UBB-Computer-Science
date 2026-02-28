@@ -1,0 +1,62 @@
+This DSL is designed as a minimal, readable language for mathematical computations, particularly focused on vector and matrix operations such as addition, subtraction, scalar multiplication, dot product, cross product, transpose, and matrix multiplication. Its primary use case is to allow learners, teachers, and script writers to quickly express and compute linear algebra problems interactively or in batch scripts. By combining simple input/output commands, domain-specific operators, and control structures, it enables writing clear and maintainable programs without requiring the full complexity of a general-purpose language.
+
+The choice of statements in the DSL reflects its focus on usability and clarity. INPUT and OUTPUT provide basic interactivity, making it easy to read vector and matrix values from the user and display results. The DEF … BEGIN … END structure lets users define reusable, named functions, with RETURN allowing those functions to produce computed results. Conditionals with IF … THEN … ELSE … END enable comparisons and decisions, which are essential for checking mathematical properties such as orthogonality or equality of results. At the heart of the DSL are the expressions that use both standard arithmetic operators and domain-specific linear algebra operators — + and - for vector or matrix addition and subtraction, * for scalar or matrix multiplication, · for vector dot product, × for cross product, and the postfix T for matrix transpose. This makes complex linear algebra operations intuitive and succinct.
+
+This DSL is well-suited to a variety of settings: classrooms (to teach linear algebra concepts through programming), quick scripts for matrix computations (such as testing properties of vectors or matrices), or as a lightweight scripting tool embedded in larger systems. The minimal syntax lowers the barrier to entry for non-programmers while still offering enough expressiveness for meaningful computation. Its statements were chosen to strike a balance between simplicity, expressiveness, and focus on the domain of vector and matrix computations.
+
+INPUT Statement
+---------------
+Example:
+INPUT A
+INPUT B
+Explanation: Reads vectors or matrices from the user for computations.
+
+OUTPUT Statement
+----------------
+Example:
+OUTPUT A + B
+OUTPUT A . B
+Explanation: Outputs the result of a vector or matrix expression.
+
+Assignment Statement
+--------------------
+Example:
+C = A + B
+Explanation: Stores the result of an expression in a variable for later use.
+
+DEF … BEGIN … END and RETURN Statements
+---------------------------------------
+Example:
+DEF dotProduct(X, Y)
+BEGIN
+    RETURN X . Y
+END
+Explanation: Defines a reusable function returning the dot product of two vectors.
+
+IF … THEN … ELSE … END Statement
+---------------------------------
+Example:
+IF A . B == 0 THEN
+    C = A + B
+ELSE
+    C = A - B
+END
+Explanation: Conditional computation based on a vector or matrix property.
+
+Expression Statement
+-------------------
+Example:
+D = A * 3 + B
+Explanation: Evaluates arithmetic or linear algebra expressions.
+
+Function Call
+-------------
+Example:
+E = dotProduct(A, B)
+Explanation: Calls a previously defined function to compute a result.
+
+Transpose Operator (Postfix “T”)
+---------------------------------
+Example:
+B = A T
+Explanation: Computes the transpose of a matrix.

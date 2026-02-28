@@ -1,0 +1,66 @@
+N = program statement_list statement assign_or_expr id_processing input_stmt output_stmt expression_tail return_stmt if_stmt else_part def_stmt parameters_opt parameters parameters_tail expression expression_rest term postfix_opt base_term non_id_base_term id_tail vector_elements vector_tail matrix_rows matrix_row_tail arguments_opt arguments arguments_tail condition comparator
+E = ID INPUT OUTPUT IF THEN ELSE END DEF RETURN MATRIX BEGIN + - * . ^ = T == != > < >= <= ( ) [ ] , CONST
+S = program
+P =
+program -> statement_list
+statement_list -> statement statement_list
+statement_list -> epsilon
+statement -> input_stmt
+statement -> output_stmt
+statement -> if_stmt
+statement -> def_stmt
+statement -> return_stmt
+statement -> assign_or_expr
+assign_or_expr -> ID id_processing
+id_processing -> = expression
+id_processing -> id_tail postfix_opt expression_rest
+input_stmt -> INPUT ID
+output_stmt -> OUTPUT expression expression_tail
+expression_tail -> , expression expression_tail
+expression_tail -> epsilon
+return_stmt -> RETURN expression
+if_stmt -> IF condition THEN statement_list else_part END
+else_part -> ELSE statement_list
+else_part -> epsilon
+def_stmt -> DEF ID ( parameters_opt ) BEGIN statement_list END
+parameters_opt -> parameters
+parameters_opt -> epsilon
+parameters -> ID parameters_tail
+parameters_tail -> , ID parameters_tail
+parameters_tail -> epsilon
+expression -> term expression_rest
+expression_rest -> + term expression_rest
+expression_rest -> - term expression_rest
+expression_rest -> * term expression_rest
+expression_rest -> . term expression_rest
+expression_rest -> ^ term expression_rest
+expression_rest -> epsilon
+term -> base_term postfix_opt
+postfix_opt -> T
+postfix_opt -> epsilon
+base_term -> ID id_tail
+base_term -> non_id_base_term
+non_id_base_term -> CONST
+non_id_base_term -> [ vector_elements ]
+non_id_base_term -> MATRIX ( matrix_rows )
+non_id_base_term -> ( expression )
+id_tail -> ( arguments_opt )
+id_tail -> epsilon
+vector_elements -> expression vector_tail
+vector_tail -> , expression vector_tail
+vector_tail -> epsilon
+matrix_rows -> [ vector_elements ] matrix_row_tail
+matrix_row_tail -> , [ vector_elements ] matrix_row_tail
+matrix_row_tail -> epsilon
+arguments_opt -> arguments
+arguments_opt -> epsilon
+arguments -> expression arguments_tail
+arguments_tail -> , expression arguments_tail
+arguments_tail -> epsilon
+condition -> expression comparator expression
+comparator -> ==
+comparator -> !=
+comparator -> >
+comparator -> <
+comparator -> >=
+comparator -> <=

@@ -1,0 +1,61 @@
+%{
+#include <stdio.h>
+#include "symbol_table.h"
+#include "program_internal_form.h"
+
+PIF programPIF;
+SymbolNode* symTable = NULL;
+int current_index = 0;
+%}
+
+DIGIT       [0-9]
+NONZERO     [1-9]
+LETTER      [A-Za-z]
+ID          {LETTER}({LETTER}|{DIGIT}|_)*
+NUMBER      ([+-]?{NONZERO}{DIGIT}*|0)(\.[0-9]+)?
+
+%%
+
+INPUT|OUTPUT|IF|THEN|ELSE|END|DEF|BEGIN|RETURN|MATRIX { add_to_PIF(&programPIF, yytext, -1); }
+
+"T" { add_to_PIF(&programPIF, yytext, -1); }
+
+{DIGIT}+{LETTER}({LETTER}|{DIGIT}|_)* { add_to_PIF(&programPIF, "LEXICAL ERROR", -1); return 0; }
+
+{ID} { int index = insert_symbol(&symTable, yytext, &current_index); add_to_PIF(&programPIF, "id", index); }
+
+{NUMBER} { int index = insert_symbol(&symTable, yytext, &current_index); add_to_PIF(&programPIF, "id", index); }
+
+"+"|"-"|"*"|"."|"x"|"=" { add_to_PIF(&programPIF, yytext, -1); }
+
+"=="|"!="|">="|"<="|">"|"<" { add_to_PIF(&programPIF, yytext, -1); }
+
+"("|")"|"["|"]"|"," { add_to_PIF(&programPIF, yytext, -1); }
+
+"{"[^}\n]*"}" {}
+[ \t\n]+ {}
+
+. { add_to_PIF(&programPIF, "UNRECOGNIZED CHARACTER", -1); return 0; }
+
+%%
+
+int main(int argc, char** argv) {
+    if(argc > 1) yyin = fopen(argv[1], "r");
+    else yyin = stdin;
+
+    init_PIF(&programPIF);
+
+    yylex();
+
+    print_PIF(&programPIF);
+    printf("\n--- Symbol Table --- \n");
+    print_symbol_table(symTable);
+    free_symbol_table(symTable);
+    free_PIF(&programPIF);
+
+    return 0;
+}
+
+int yywrap() {
+    return 1;
+}

@@ -1,0 +1,186 @@
+I will give you a BNF for a DSL defined by me, 2 programs I've written, and I want you to verify that the programs are correctly written, they follow every rule in the BNF, there are no errors or mistakes, and if there are please present them in detail such that I can modify my BNF if needed. BNF: program ::= statement_list statement_list ::= statement statement_list | epsilon statement ::= input_stmt | output_stmt | if_stmt | def_stmt | return_stmt | expr_stmt input_stmt ::= "INPUT" identifier output_stmt ::= "OUTPUT" expression expression_tail expression_tail ::= "," expression expression_tail | epsilon return_stmt ::= "RETURN" expression if_stmt ::= "IF" condition "THEN" statement_list else_part "END" else_part ::= "ELSE" statement_list | epsilon def_stmt ::= "DEF" identifier "(" parameters_opt ")" "BEGIN" statement_list "END" parameters_opt ::= parameters | epsilon parameters ::= identifier parameters_tail parameters_tail ::= "," identifier parameters_tail | epsilon expr_stmt ::= expression expression ::= term expression_rest expression_rest ::= operator term expression_rest | epsilon term ::= base_term postfix_opt postfix_opt ::= "T" | epsilon base_term ::= identifier | number | "[" vector_elements "]" | "MATRIX" "(" matrix_rows ")" | "(" expression ")" | function_call vector_elements ::= expression vector_tail vector_tail ::= "," expression | epsilon matrix_rows ::= "[" vector_elements "]" matrix_row_tail matrix_row_tail ::= "," "[" vector_elements "]" matrix_row_tail | epsilon function_call ::= identifier "(" arguments_opt ")" arguments_opt ::= arguments | epsilon arguments ::= expression arguments_tail arguments_tail ::= "," expression arguments_tail | epsilon condition ::= expression comparison_op expression operator ::= "=" (* assignment *) | "+" (* vector/matrix addition *) | "-" (* subtraction *) | "*" (* scalar or matrix multiplication *) | "." (* dot product *) | "x" (* cross product *) comparison_op ::= "==" | "!=" | ">" | "<" | ">=" | "<=" identifier ::= letter identifier_tail identifier_tail ::= letter_or_digit_or_underscore identifier_tail | epsilon letter_or_digit_or_underscore ::= letter | digit | "_" number ::= "0" | ["+" | "-"] nonzero_digit {"0" | nonzero_digit} nonzero_digit ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" letter ::= "A" | ... | "Z" | "a" | ... | "z" Program 1: This is a program that validates the following theorem: (A*B)T == (B)T * (A)T DEF theorem_check(A, B) BEGIN L = (A * B) T R = (B T) * (A T) IF L == R THEN RETURN 1 ELSE RETURN 0 END END M1 = MATRIX([[1, 2], [3, 4]]) M2 = MATRIX([[5, 6], [7, 8]]) OUTPUT theorem_check(M1, M2) Program 2: DEF scaleAndAdd(X, Y, s) BEGIN RETURN (X + Y) * s END DEF combine(M1, M2, M3) BEGIN R1 = scaleAndAdd(M1, M2, 2) R2 = scaleAndAdd(M2, M3, 3) IF M1 == M2 THEN RETURN R1 + R2 T ELSE RETURN R1 * R2 END END INPUT A INPUT B INPUT C OUTPUT combine(A, B, C), A, B, C
+
+Answer:
+Great! Let’s go carefully step by step. I will check both programs against your BNF, verifying syntax rules, operator usage, postfix ‘T’, function calls, and statements. I will also point out any ambiguities or potential BNF improvements.
+Program 1: Theorem Check
+DEF theorem_check(A, B)
+BEGIN
+    L = (A * B) T
+    R = (B T) * (A T)
+    IF L == R THEN
+        RETURN 1
+    ELSE
+        RETURN 0
+    END
+END
+
+M1 = MATRIX([[1, 2], [3, 4]])
+M2 = MATRIX([[5, 6], [7, 8]])
+OUTPUT theorem_check(M1, M2)
+
+Step 1: DEF statement
+
+DEF theorem_check(A, B) BEGIN ... END → matches:
+def_stmt ::= "DEF" identifier "(" parameters_opt ")" "BEGIN" statement_list "END"
+parameters_opt ::= parameters
+parameters ::= identifier parameters_tail
+parameters_tail ::= "," identifier parameters_tail | epsilon
+
+✅ Correct syntax: theorem_check is a valid identifier, (A, B) matches parameters.
+
+Step 2: L = (A * B) T
+
+L = (A * B) T → should match expr_stmt ::= expression
+
+expression ::= term expression_rest
+
+term ::= base_term postfix_opt
+
+postfix_opt ::= "T" | epsilon → we have T here, ✅ correct.
+
+base_term ::= "(" expression ")" → (A * B) is valid.
+
+expression_rest ::= operator term expression_rest | epsilon
+
+A * B → operator * and operands A and B are identifiers, ✅ correct.
+
+Assignment: L = ... → operator = is allowed as per operator ::= "=" ... ✅ correct.
+
+✅ Valid statement.
+
+Step 3: R = (B T) * (A T)
+
+Same logic as above:
+
+(B T) → (B) is base_term, T is postfix, ✅ valid.
+
+(A T) → ✅ valid.
+
+* between them → ✅ valid operator.
+
+✅ Valid statement.
+
+Step 4: IF L == R THEN ... ELSE ... END
+
+IF statement syntax:
+if_stmt ::= "IF" condition "THEN" statement_list else_part "END"
+condition ::= expression comparison_op expression
+
+L == R → comparison_op ::= "==" → ✅ valid
+
+Statements inside THEN and ELSE blocks: RETURN 1 and RETURN 0 → return_stmt ::= "RETURN" expression → 1 is a number → ✅ valid
+
+✅ Valid IF statement.
+
+Step 5: Matrix initialization and OUTPUT
+
+M1 = MATRIX([[1, 2], [3, 4]]) → MATRIX(matrix_rows)
+
+matrix_rows ::= "[" vector_elements "]" matrix_row_tail
+
+vector_elements ::= expression vector_tail
+
+[1, 2] → valid vector (list of numbers)
+
+[3, 4] → valid vector → separated by , → ✅ valid
+
+OUTPUT theorem_check(M1, M2) → matches output_stmt ::= "OUTPUT" expression expression_tail
+
+theorem_check(M1, M2) → function_call → ✅ valid
+
+✅ Program 1 is fully valid.
+
+Program 2
+DEF scaleAndAdd(X, Y, s)
+BEGIN
+    RETURN (X + Y) * s
+END
+
+DEF combine(M1, M2, M3)
+BEGIN
+    R1 = scaleAndAdd(M1, M2, 2)
+    R2 = scaleAndAdd(M2, M3, 3)
+    IF M1 == M2 THEN
+        RETURN R1 + R2 T
+    ELSE
+        RETURN R1 * R2
+    END
+END
+
+INPUT A
+INPUT B
+INPUT C
+OUTPUT combine(A, B, C), A, B, C
+OUTPUT combine(A, B, C), A, B, C
+
+Step 1: DEF scaleAndAdd
+
+DEF scaleAndAdd(X, Y, s) → ✅ valid
+
+RETURN (X + Y) * s →
+
+(X + Y) is a base_term expression, postfix optional epsilon → ✅
+
+* s → ✅ valid operator usage
+
+✅ Valid function.
+
+Step 2: DEF combine
+
+R1 = scaleAndAdd(M1, M2, 2) → function call as expression → ✅ valid
+
+R2 = scaleAndAdd(M2, M3, 3) → ✅ valid
+
+Step 3: IF M1 == M2 THEN ... ELSE ... END
+
+RETURN R1 + R2 T
+
+R2 T is valid postfix usage
+
+R1 + R2 T → expression_rest ::= operator term expression_rest ✅ valid
+
+This is subtle but BNF allows postfix T only immediately after a term, not after an expression. Here R2 T is a term → ✅ valid.
+
+RETURN R1 * R2 → ✅ valid
+
+Step 4: INPUT statements
+
+INPUT A, INPUT B, INPUT C → input_stmt ::= "INPUT" identifier → ✅ valid
+
+Step 5: OUTPUT statements
+
+OUTPUT combine(A, B, C), A, B, C
+
+expression expression_tail
+
+combine(A, B, C) → function call
+
+, A → vector of expressions → ✅ valid
+
+Repeated line → ✅ valid
+
+✅ Program 2 is fully valid.
+
+Observations / Potential BNF Improvements
+
+Assignment = is treated as an operator:
+
+Current BNF allows assignment like expression ::= term expression_rest, with operator ::= "=". This works, but conceptually = is usually a statement-level operator.
+
+This can allow things like (A = B) + C, which may not be intended. Consider separating assignment statements from expressions if you want stricter rules.
+
+Postfix T:
+
+Currently, postfix_opt ::= "T" | epsilon applies only to term. This works fine for your programs, but complex nested expressions like ((A*B) + C) T would be invalid in this BNF. If you want transpose on entire expressions, you might need to extend postfix_opt to expression level.
+
+Numbers:
+
+number ::= "0" | ["+" | "-"] nonzero_digit {"0" | nonzero_digit}
+
+This allows +1 or -123, ✅ fine, but 0 cannot have a +/- prefix. Usually +0 or -0 is allowed; you might consider modifying.
+
+Conclusion
+
+Both programs fully conform to your BNF.
+
+Only subtle points are about assignment as operator and postfix T limitations if you plan more complex expressions.

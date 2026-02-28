@@ -1,0 +1,69 @@
+%{
+#include <stdio.h>
+#include "symbol_table.h"
+#include "program_internal_form.h"
+#include "fa_constant.h"
+#include "fa_identifier.h"
+
+PIF programPIF;
+SymbolNode* symTable = NULL;
+int current_index = 0;
+char buffer[256];
+%}
+
+%%
+
+INPUT|OUTPUT|IF|THEN|ELSE|END|DEF|BEGIN|RETURN|MATRIX { add_to_PIF(&programPIF, yytext, -1); }
+
+"T" { add_to_PIF(&programPIF, yytext, -1); }
+
+[a-zA-Z0-9_.+-]+ {
+    strcpy(buffer, yytext);
+    if (is_identifier(buffer)) {
+        int idx = insert_symbol(&symTable, buffer, &current_index);
+        add_to_PIF(&programPIF, "id", idx);
+    }
+    else if (is_constant(buffer)) {
+        int idx = insert_symbol(&symTable, buffer, &current_index);
+        add_to_PIF(&programPIF, "const", idx);
+    }
+    else {
+        char err_token[300];
+        sprintf(err_token, "LEXICAL_ERROR(%s)", buffer);
+        add_to_PIF(&programPIF, err_token, -1);
+        return 0;
+    }
+}
+
+[ \t\n]+ {}
+
+"+"|"-"|"*"|"."|"x"|"=" { add_to_PIF(&programPIF, yytext, -1); }
+
+"=="|"!="|">="|"<="|">"|"<" { add_to_PIF(&programPIF, yytext, -1); }
+
+"("|")"|"["|"]"|"," { add_to_PIF(&programPIF, yytext, -1); }
+
+. { add_to_PIF(&programPIF, "UNRECOGNIZED CHARACTER", -1); return 0; }
+
+%%
+
+int main(int argc, char** argv) {
+    if(argc > 1) yyin = fopen(argv[1], "r");
+    else yyin = stdin;
+
+    init_PIF(&programPIF);
+
+    yylex();
+
+    print_PIF(&programPIF);
+    printf("\n--- Symbol Table --- \n");
+    print_symbol_table(symTable);
+    free_symbol_table(symTable);
+    free_PIF(&programPIF);
+
+    return 0;
+}
+
+int yywrap() {
+    return 1;
+}
